@@ -30,15 +30,15 @@ public class BookLibraryMain {
         Book book2 = new Book();
         BookId bookId1, bookId2;
 
-        book1.setAuthor("Darwin")
-             .setTitle("Małpy")
+        book1.setAuthor("Karol Darwin")
+             .setTitle("Human evolution")
              .setYear("1900")
              .setLent(false);
-        book2.setAuthor("King")
-             .setTitle("Lsnienie")
+        book2.setAuthor("Steven King")
+             .setTitle("Horror")
              .setYear("2000")
              .setLent(true)
-             .setLentFor("Jaś Fasola");
+             .setLentFor("Ally McBeal");
         
         bookId1 = bookManager.insertBook(book1);
         bookId2 = bookManager.insertBook(book2);
@@ -51,7 +51,6 @@ public class BookLibraryMain {
         System.out.println("++++++++++++++++++");
         //bookManager.lendBook(bookId1, "Kisieliński");
         //bookManager.printAllBooks();
-        
         Set<BookId> bookIds = bookManager.searchByQuery("King|Darwin#Małpy#1900");
         bookManager.printBooks(bookIds);
 

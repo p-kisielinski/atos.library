@@ -97,6 +97,6 @@ public class Book {
     }
     
     public String toString() {
-        return "";
+        return getTitle() + ":" + getAuthor();
     }
 }

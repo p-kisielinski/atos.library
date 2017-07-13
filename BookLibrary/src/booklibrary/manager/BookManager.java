@@ -5,7 +5,6 @@
  */
 package booklibrary.manager;
 
-import java.util.ArrayList;
 import booklibrary.db.BookLibrary;
 import booklibrary.entity.Book;
 import booklibrary.entity.BookId;
@@ -110,34 +109,41 @@ public class BookManager {
         Set<BookId>       allBookIds = bookLibrary.selectAllKeys();
         HashSet<BookId> bookIds    = new HashSet<BookId>();
         Book              book;
-        String            authorQuery;
-        String            titleQuery;
-        String            yearQuery;
+        String            authorQuery = ".*";
+        String            titleQuery  = ".*";
+        String            yearQuery   = "[0-9]*";
         
-        String[] queries = query.split("#");
-        switch(queries.length) {
-            case 1: authorQuery=queries[0];
-                    titleQuery=".*";
-                    yearQuery="[0-9]*";
-                    break;
-            case 2: authorQuery=queries[0];
-                    titleQuery=queries[1];
-                    yearQuery="[0-9]*";
-                    break;
-            case 3: authorQuery=queries[0];
-                    titleQuery=queries[1];
-                    yearQuery=queries[2];
-                    break;
-            default:authorQuery=".*";
-                    titleQuery=".*";
-                    yearQuery="[0-9]*";
-                    break;        
+        if( query != null && query.length() > 0 ) {
+            String[] queries = query.split("#");
+            switch(queries.length) {
+                case 1: 
+                        if( queries[0].length()>0 )
+                            authorQuery=queries[0];
+                        titleQuery=".*";
+                        yearQuery="[0-9]*";
+                        break;
+                case 2: 
+                        if( queries[0].length()>0 )
+                           authorQuery=queries[0];
+                        if( queries[1].length()>0 )
+                           titleQuery=queries[1];
+                        yearQuery="[0-9]*";
+                        break;
+                case 3: 
+                        if( queries[0].length()>0 )
+                           authorQuery=queries[0];
+                        if( queries[1].length()>0 )
+                           titleQuery=queries[1];
+                        if( queries[2].length()>0 )
+                           yearQuery=queries[2];
+                        break;
+                default:
+                        authorQuery=".*";
+                        titleQuery=".*";
+                        yearQuery="[0-9]*";
+                        break;        
+            }
         }
-        
-   
-        System.out.println(authorQuery);
-        System.out.println(titleQuery);
-        System.out.println(yearQuery);
         
         for(BookId bookId : allBookIds) {
               book = selectBook(bookId);
@@ -149,7 +155,6 @@ public class BookManager {
               
           }
         return bookIds;
-        
     }
  
     /**
