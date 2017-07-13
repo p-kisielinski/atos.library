@@ -14,7 +14,7 @@ import java.util.Set;
 
 /**
  *
- * @author piotr
+ * @author Piotr Kisielinski
  */
 public class BookManager {
    
@@ -46,7 +46,7 @@ public class BookManager {
             System.out.println("Book Id : " + bookId);
             System.out.println("Author  : " + book.getAuthor());
             System.out.println("Title   : " + book.getTitle());
-            System.out.println("Title   : " + book.getYear());
+            System.out.println("Year    : " + book.getYear());
             System.out.println("Lent    : " + (book.isLent() ? "Yes" : "No"));
             System.out.println("Lent For: " + (book.isLent() ? book.getLentFor() : "-"));
             
@@ -102,12 +102,12 @@ public class BookManager {
     }
     
     /**
-     * @param simple query string 
-     * Format Titlequery[#Authorquery[#Yearquery]]
+     * @param query String : format Titlequery[#Authorquery[#Yearquery]]
+     * 
      */
     public HashSet<BookId> searchByQuery(String query) {
         Set<BookId>       allBookIds = bookLibrary.selectAllKeys();
-        HashSet<BookId> bookIds    = new HashSet<BookId>();
+        HashSet<BookId> bookIds    = new HashSet();
         Book              book;
         String            authorQuery = ".*";
         String            titleQuery  = ".*";

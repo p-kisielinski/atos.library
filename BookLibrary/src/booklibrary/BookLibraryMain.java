@@ -13,7 +13,7 @@ import java.util.Set;
 
 /**
  *
- * @author piotr
+ * @author Piotr Kisielinski
  */
 public class BookLibraryMain {
 
@@ -21,8 +21,6 @@ public class BookLibraryMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        
         BookLibrary bookLibrary = new BookLibrary();
         BookManager bookManager = new BookManager(bookLibrary);
         
@@ -48,7 +46,7 @@ public class BookLibraryMain {
         bookManager.printBook(bookId2);
         //bookManager.deleteBook(bookId1);
         //bookManager.deleteBook(bookId2);
-        System.out.println("++++++++++++++++++");
+        System.out.println("RESULTS =====================================");
         //bookManager.lendBook(bookId1, "Kisieliński");
         //bookManager.printAllBooks();
         Set<BookId> bookIds = bookManager.searchByQuery("King|Darwin#Małpy#1900");

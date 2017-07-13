@@ -7,7 +7,7 @@ package booklibrary.entity;
 
 /**
  *
- * @author piotr
+ * @author Piotr Kisielinski
  */
 public class BookId {
     private final String id;

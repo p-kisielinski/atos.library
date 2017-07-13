@@ -14,7 +14,7 @@ import java.util.UUID;
 
 /**
  *
- * @author piotr
+ * @author Piotr Kisielinski
  */
 public class BookLibrary {
     

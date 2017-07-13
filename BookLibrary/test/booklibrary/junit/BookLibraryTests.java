@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author piotr
+ * @author Piotr Kisielinski
  */
 public class BookLibraryTests {
     
